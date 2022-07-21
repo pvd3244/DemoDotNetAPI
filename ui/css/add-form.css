@@ -1,0 +1,99 @@
+.add-form{
+    width: 500px;
+    height: 600px;
+    background-color: #fff;
+    position: absolute;
+    top: calc(50% - 300px);
+    left: calc(50% - 250px);
+    border: 2px solid #e5e5e5;
+    border-radius: 8px;
+    display: none;
+}
+
+.form-header{
+    width: 100%;
+    height: 60px;
+}
+.hide-form{
+    height: 24px;
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+.icon-x{
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+.form-title{
+    font-size: 20px;
+    padding-left: 24px;
+}
+
+.form-body{
+    width: 100%;
+    height:  calc(100% - 120px);
+    display: flex;
+}
+.img-employee{
+    width: 100px;
+    height: 100%;
+    background-color: #fff;
+    padding-left: 10px;
+}
+.employee-img{
+    height: 80px;
+    width: 80px;
+    border: 1px solid #e5e5e5;
+    border-radius: 50%;
+    background-image: url(/assets/img/default-avatar.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.info-employee{
+    height: 100%;
+    width: calc(100% - 100px);
+    padding-right: 24px;
+}
+.employee-info{
+    display: flex;
+}
+.title-info{
+    display: flex;
+}
+.red{
+    color: red;
+}
+.add-form .input{
+    width: 150px;
+    height: 30px;
+}
+.employee-name{
+    margin-left: 8px;
+}
+.title-info{
+    padding-bottom: 4px;
+}
+
+
+.form-footer{
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    background-color: #e5e5e5;
+}
+.btn-cancel{
+    background-color: #fff;
+    color: #000;
+    margin-right: 16px;
+}
+.btn-add{
+    margin-right: 24px;
+}
+.icon-save{
+    height: 16px;
+    width: 16px;
+    margin-right: 8px;
+}

@@ -1,0 +1,76 @@
+.pop-up-delete{
+    height: 200px;
+    width: 500px;
+    position: absolute;
+    top: calc(50% - 100px);
+    left: calc(50% - 250px);
+    background-color: #fff;
+    border: 2px solid black;
+    border-radius: 4px;
+    display: none;
+}
+.pop-header{
+    height: 48px;
+    width: 100%;
+}
+.hide-pop{
+    height: 24px;
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+.icon-x{
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+.pop-title{
+    font-size: 20px;
+    padding-left: 24px;
+}
+
+.pop-body{
+    width: 100%;
+    height: calc(100% - 108px);
+    display: flex;
+    align-items: center;
+    padding-left: 24px;
+}
+.warring{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #e5e5e5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.icon-warring{
+    width: 24px;
+    height: 24px;
+}
+.warring-content{
+    margin-left: 10px;
+    display: flex;
+}
+
+.pop-footer{
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    background-color: #e5e5e5;
+}
+.btn-cancel{
+    background-color: #fff;
+    color: #000;
+    margin-right: 16px;
+}
+.btn-delete{
+    background-color: red;
+    margin-right: 24px;
+}
+.btn-delete:hover{
+    background-color: red;
+}

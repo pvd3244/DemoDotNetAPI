@@ -1,0 +1,19 @@
+@import url(../common/font.css);
+@import url(../common/button.css);
+@import url(../common/input.css);
+@import url(../common/icon.css);
+@import url(../common/table.css);
+@import url(../common/combobox.css);
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.body-container{
+    width: 100vw;
+    height: 100vh;
+    font-family: GoogleSans-Regular;
+    font-size: 13px;
+    display: flex;
+    position: relative;
+}

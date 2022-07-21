@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/common/common.css">
+    <link rel="stylesheet" href="../css/CukCuk.css">
+    <link rel="stylesheet" href="../css/add-form.css">
+    <link rel="stylesheet" href="../css/pop-up-delete.css">
+    <title>CukCuk</title>
+</head>
+<body>
+    <div class="body-container">
+        <!-- Danh sách chức năng của hệ thống -->
+        <div class="menu-left">
+            <div class="logo-web">
+                <div class="icon icon-toggle"></div>
+                <div class="icon logo"></div>
+            </div>
+            <div class="menu font-regular">
+                <div class="menu-general">
+                    <div class="icon icon-menu icon-general"></div>
+                    <div class="general">Tổng quan</div>
+                </div>
+                <div class="menu-general">
+                    <div class="icon icon-menu icon-report"></div>
+                    <div class="general">Báo cáo</div>
+                </div>
+                <div class="menu-general">
+                    <div class="icon icon-menu icon-general"></div>
+                    <div class="general">Mua hàng</div>
+                </div>
+                <div class="menu-general active">
+                    <div class="icon icon-menu icon-employee"></div>
+                    <div class="general">Danh mục nhân viên</div>
+                </div>
+                <div class="menu-general">
+                    <div class="icon icon-menu icon-setting"></div>
+                    <div class="general">Thiết lập hệ thống</div>
+                </div>
+            </div>
+        </div>
+        <!-- Nội dung của chức năng Danh mục nhân viên -->
+        <div class="container">
+            <div class="header">
+                <div class="cbo-restaurant">
+                    <select class="font-bold combobox">
+                        <option>Nhà hàng Biển Đông</option>
+                    </select>
+                </div>
+                <div class="user">
+                    <div class="img-user icon icon-user"></div>
+                    <div class="name-user font-medium">Phạm Văn Định</div>
+                    <div class="option icon icon-option"></div>
+                </div>
+            </div>
+            <div class="body">
+                <div class="filter-data">
+                    <div class="title">
+                        <div class="font-bold the-title">Danh sách nhân viên</div>
+                        <div class="add-employee button" id="Add">
+                            <div class="icon icon-add"></div>
+                            <div class="button-name">Thêm nhân viên</div>
+                        </div>
+                    </div>
+                    <div class="function">
+                        <div class="option-filter-data">
+                            <div class="content-search">
+                                <input class="input input-icon" type="text" placeholder="Tìm kiếm theo Mã hoặc Tên nhân viên">
+                            </div>
+                            <div class="select-department">
+                                <select class="combobox" id="Department">
+                                    <option value="-1">Tất cả phòng ban</option>
+                                </select>
+                            </div>
+                            <div class="select-position">
+                                <select class="combobox" id="Position">
+                                    <option value="-1">Tất cả vị trí</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="gird-function">
+                            <div class="delete-employee func-icon" id="Delete">
+                                <div class="icon icon-delete"></div>
+                            </div>
+                            <div class="replication-employee func-icon" id="Replication">
+                                <div class="icon icon-replication"></div>
+                            </div>
+                            <div class="refresh func-icon" id="Refresh">
+                                <div class="icon icon-refresh"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Danh sách nhân viên -->
+                <div class="table-employee">
+                    <table class="table" id="gird-employee">
+                        <thead>
+                            <tr>
+                                <th>Mã nhân viên</th>
+                                <th>Họ và tên</th>
+                                <th>Giới tính</th>
+                                <th class="align-center">Ngày sinh</th>
+                                <th>Điện thoại</th>
+                                <th>Email</th>
+                                <th>Chức vụ</th>
+                                <th>Phòng ban</th>
+                                <th class="align-right">Mức lương cơ bản</th>
+                                <th>Tình trạng công việc</th>
+                            </tr>
+                        </thead>
+                        <tbody id="EmployeeData">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="display-employee">Hiển thị 1-10/1000 nhân viên</div>
+                <div class="menu-page">
+                    <div class="page-number icon icon-fisrt-page"></div>
+                    <div class="page-number icon icon-prev-page"></div>
+                    <div class="page-number number page-active">1</div>
+                    <div class="page-number number">2</div>
+                    <div class="page-number number">3</div>
+                    <div class="page-number number">4</div>
+                    <div class="page-number icon icon-next-page"></div>
+                    <div class="page-number icon icon-last-page"></div>
+                </div>
+                <div class="cbo-number-employee">
+                    <select id="page-size">
+                        <option value="10">10 nhân viên/trang</option>
+                        <option value="20">20 nhân viên/trang</option>
+                        <option value="50">50 nhân viên/trang</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <!-- Form xác nhận xóa thông tin nhân viên -->
+        <div class="pop-up-delete" id="DeleteForm">
+            <div class="pop-header">
+                <div class="hide-pop">
+                    <div class="icon icon-x" id="XDeleteForm"></div>
+                </div>
+                <div class="pop-title font-medium">Xác nhận xóa nhân viên</div>
+            </div>
+            <div class="pop-body">
+                <div class="warring">
+                    <div class="icon icon-warring"></div>
+                </div>
+                <div class="warring-content">Bạn chắc chắn muốn xóa nhân viên có mã&nbsp;<p id="DeleteCode"></p>?</div>
+            </div>
+            <div class="pop-footer">
+                <div class="button btn-cancel" id="CancelDelete">Hủy</div>
+                <div class="button btn-delete" id="ConfirmDelete">Xóa</div>
+            </div>
+        </div>
+        <!-- Form thêm nhân viên -->
+        <div class="add-form" id="AddForm">
+            <div class="form-header">
+                <div class="hide-pop">
+                    <div class="icon icon-x" id="XAddForm"></div>
+                </div>
+                <div class="pop-title font-bold">THÔNG TIN NHÂN VIÊN</div>
+            </div>
+            <div class="form-body">
+                <div class="img-employee">
+                    <div class="employee-img"></div>
+                    <div class="img-note">(Vui lòng chọn ảnh có định dạng .jpg .jpeg .png .gif)</div>
+                </div>
+                <div class="info-employee">
+                    <div class="singer-info">
+                        <div class="singer-title font-medium">A. THÔNG TIN CHUNG:</div>
+                        <div class="employee-code-name employee-info">
+                            <div class="employee-code">
+                                <div class="title-info font-medium">Mã nhân viên(<p class="red">*</p>)</div>
+                                <input type="text" class="input"  id="EmployeeCode">
+                            </div>
+                            <div class="employee-name">
+                                <div class="title-info font-medium">Tên nhân viên(<p class="red">*</p>)</div>
+                                <input type="text" class="input"  id="EmployeeName">
+                            </div>
+                        </div>
+                        <div class="employee-birth-gender  employee-info">
+                            <div class="employee-code">
+                                <div class="title-info font-medium">Ngày sinh</div>
+                                <input type="date" class="input" id="DateOfBirth">
+                            </div>
+                            <div class="employee-name">
+                                <div class="title-info font-medium">Giới tính</div>
+                                <select class="input" id="Gender">
+                                    <option value="0">Nữ</option>
+                                    <option value="1">Nam</option>
+                                    <option value="2">Khác</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="employee-id-date  employee-info">
+                            <div class="employee-code">
+                                <div class="title-info font-medium">Số CMTND/CCCD(<p class="red">*</p>)</div>
+                                <input type="text" class="input" id="PeopleID">
+                            </div>
+                            <div class="employee-name">
+                                <div class="title-info font-medium">Ngày cấp</div>
+                                <input type="date" class="input" id="DateRange">
+                            </div>
+                        </div>
+                        <div class="id-adress  employee-info">
+                            <div class="employee-code">
+                                <div class="title-info font-medium">Nơi cấp</div>
+                                <input type="text" class="input" id="AddressRange">
+                            </div>
+                        </div>
+                        <div class="employee-email-phone  employee-info">
+                            <div class="employee-code">
+                                <div class="title-info font-medium">Email(<p class="red">*</p>)</div>
+                                <input type="email" class="input" id="Email">
+                            </div>
+                            <div class="employee-name">
+                                <div class="title-info font-medium">Số điện thoại(<p class="red">*</p>)</div>
+                                <input type="text" class="input" id="Phone">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="work-info">
+                        <div class="work-title font-medium">B. THÔNG TIN CÔNG VIỆC: </div>
+                        <div class="employee-email-phone  employee-info">
+                            <div class="employee-code">
+                                <div class="title-info font-medium">Vị trí</div>
+                                <select id="PositionI" class="input"></select>
+                            </div>
+                            <div class="employee-name depart">
+                                <div class="title-info font-medium">Phòng ban</div>
+                                <select id="DepartmentI" class="input"></select>
+                            </div>
+                        </div>
+                        <div class="employee-email-phone  employee-info">
+                            <div class="employee-code">
+                                <div class="title-info font-medium">Mã số thuế cá nhân</div>
+                                <input type="text" class="input" id="SingerCode">
+                            </div>
+                            <div class="employee-name">
+                                <div class="title-info font-medium">Mức lương cơ bản</div>
+                                <input type="number" class="input" id="Salary">
+                            </div>
+                        </div>
+                        <div class="employee-email-phone  employee-info">
+                            <div class="employee-code">
+                                <div class="title-info font-medium">Ngày gia nhập công ty</div>
+                                <input type="date" class="input" id="DateOfJoin">
+                            </div>
+                            <div class="employee-name">
+                                <div class="title-info font-medium">Tình trạng công việc</div>
+                                <input type="text" class="input" id="WorkStatus">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-footer">
+                <div class="button btn-cancel" id="CancelAdd">Hủy</div>
+                <div class="button btn-add" id="ConfirmAdd">
+                    <div class="icon icon-save"></div>
+                    <div>Lưu</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/common/jquery.js"></script>
+    <script src="../js/CukCuk.js"></script>
+    <script src="../js/position.js"></script>
+    <script src="../js/department.js"></script>
+    <script src="../js/employee.js"></script>
+</body>
+</html>

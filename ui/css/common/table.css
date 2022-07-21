@@ -1,0 +1,26 @@
+.table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.table tr{
+    text-align: left;
+}
+.table th, td{
+    padding: 0 4px;
+    border-bottom: 2px solid #000;
+}
+.table th{
+    height: 40px;
+}
+.table td{
+    height: 32px;
+}
+.table tbody tr{
+    cursor: pointer;
+}
+.align-center{
+    text-align: center;
+}
+.align-right{
+    text-align: right;
+}
