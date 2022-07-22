@@ -280,11 +280,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\MF214_PVDINH\\api\\CukCuk\\CukCuk\\CukCuk.csproj",
+      "projectUniqueName": "C:\\Users\\Lenovo\\Desktop\\DemoDotNetAPI\\api\\CukCuk\\CukCuk\\CukCuk.csproj",
       "projectName": "CukCuk",
-      "projectPath": "E:\\MF214_PVDINH\\api\\CukCuk\\CukCuk\\CukCuk.csproj",
+      "projectPath": "C:\\Users\\Lenovo\\Desktop\\DemoDotNetAPI\\api\\CukCuk\\CukCuk\\CukCuk.csproj",
       "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-      "outputPath": "E:\\MF214_PVDINH\\api\\CukCuk\\CukCuk\\obj\\",
+      "outputPath": "C:\\Users\\Lenovo\\Desktop\\DemoDotNetAPI\\api\\CukCuk\\CukCuk\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",

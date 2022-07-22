@@ -37,7 +37,7 @@ class Employee{
             //Lưu trữ dữ liệu
             $('#ConfirmAdd').off("click");
             $('#ConfirmAdd').on("click", function(){
-                alert("Chức năng này em chưa làm được");
+                UpdateData(employeeCode);
             });
         });
     }
@@ -77,7 +77,7 @@ class Employee{
             //Xác nhận xóa dữ liệu
             $('#ConfirmDelete').off("click");
             $('#ConfirmDelete').on("click", function(){
-                let Url = "http://localhost:7430/api/v1/Employees/"+employeeCode;
+                let Url = "http://localhost:54578/api/v1/Employees/"+employeeCode;
                 $.ajax({
                     url: Url,
                     method: "DELETE"

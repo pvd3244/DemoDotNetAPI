@@ -208,4 +208,9 @@
 .depart{
     padding-left: 35px;
 }
-
+.color-pop-up{
+    background-color: #5b6b6b;
+}
+.select-position{
+    margin-left: 8px;
+}

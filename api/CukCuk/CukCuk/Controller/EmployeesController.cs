@@ -32,15 +32,15 @@ namespace CukCuk.Controllers
             }
             else if(positionCode != -1 && departmentCode == -1)
             {
-                Code = "WHERE PositionCode = "+positionCode;
+                Code = "WHERE e.PositionCode = "+positionCode;
             }
             else if (positionCode == -1 && departmentCode != -1)
             {
-                Code = "WHERE DepartmentCode = " + departmentCode;
+                Code = "WHERE e.DepartmentCode = " + departmentCode;
             }
             else
             {
-                Code = "WHERE PositionCode = " + positionCode + " AND DepartmentCode = " + departmentCode;
+                Code = "WHERE e.PositionCode = " + positionCode + " AND e.DepartmentCode = " + departmentCode;
             }
             int skip, take = pageSize;
             skip = (pageNumber - 1) * pageSize;

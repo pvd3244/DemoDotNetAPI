@@ -112,7 +112,7 @@ function StartForm(){
         $('#AddForm').hide();
     });
 
-    let Url1 = "http://localhost:7430/api/Positions";
+    let Url1 = "http://localhost:54578/api/Positions";
     $.ajax({
         url: Url1,
         method: "GET"
@@ -125,10 +125,10 @@ function StartForm(){
         })
     })
     .fail(function(result){
-        alert("Error");
+        alert("Error for get position data");
     })
 
-    let Url2 = "http://localhost:7430/api/Departments";
+    let Url2 = "http://localhost:54578/api/Departments";
     $.ajax({
         url: Url2,
         method: "GET"
@@ -141,7 +141,7 @@ function StartForm(){
         })
     })
     .fail(function(result){
-        alert("Error");
+        alert("Error for get department data");
     })
 }
 //PhamDinh(13/7/2022): Tạo hàm lấy dữ liệu của nhân viên
@@ -151,7 +151,7 @@ function getData(){
     dCode = $('#Department').val();
     pNumber = $('.page-active').text();
     pSize = $('#page-size').val();
-    Url = "http://localhost:7430/api/v1/Employees?positionCode="+pCode+"&departmentCode="+dCode+"&pageNumber="+pNumber+"&pageSize="+pSize;
+    Url = "http://localhost:54578/api/v1/Employees?positionCode="+pCode+"&departmentCode="+dCode+"&pageNumber="+pNumber+"&pageSize="+pSize;
     $.ajax({
         url: Url,
         method: "GET",
@@ -220,7 +220,7 @@ function ConfirmAdd(){
             $("#Email").removeClass("boder-red");
             $("#Email").removeAttr("title");
             $.ajax({
-                url: "http://localhost:7430/api/v1/Employees",
+                url: "http://localhost:54578/api/v1/Employees",
                 type: "POST",
                 data: JSON.stringify(employee),
                 contentType: "application/json; charset=utf-8",
@@ -240,7 +240,7 @@ function ConfirmAdd(){
     }
 }
 function getPosition(){
-    let Url = "http://localhost:7430/api/Positions";
+    let Url = "http://localhost:54578/api/Positions";
     $.ajax({
         url: Url,
         method: "GET"
@@ -252,11 +252,11 @@ function getPosition(){
         })
     })
     .fail(function(result){
-        alert("Error");
+        alert("Error for get position data");
     })
 }
 function getDepartment(){
-    let Url = "http://localhost:7430/api/Departments";
+    let Url = "http://localhost:54578/api/Departments";
     $.ajax({
         url: Url,
         method: "GET"
@@ -268,11 +268,11 @@ function getDepartment(){
         })
     })
     .fail(function(result){
-        alert("Error");
+        alert("Error for get department data");
     })
 }
 function DataForm(employeeCode){
-    Url = "http://localhost:7430/api/v1/Employees/"+employeeCode;
+    Url = "http://localhost:54578/api/v1/Employees/"+employeeCode;
     $.ajax({
         url: Url,
         method: "GET"
@@ -296,4 +296,58 @@ function DataForm(employeeCode){
         $("#DateOfJoin").val(FormatDateInput(employee.dateOfJoin));
         $("#WorkStatus").val(employee.workStatus);
     })
+}
+function UpdateData(employeeCode){
+    var employee = {};
+    employee.EmployeeCode = $("#EmployeeCode").val();
+    employee.EmployeeName = $("#EmployeeName").val();
+    employee.DateOfBirth = $("#DateOfBirth").val();
+    if(employee.DateOfBirth == "") employee.DateOfBirth = null;
+    employee.Gender = $("#Gender").val();
+    employee.PeopleID = $("#PeopleID").val();
+
+    employee.DateRange = $("#DateRange").val();
+    if(employee.DateRange == "") employee.DateRange = null;
+    employee.AddressRange = $("#AddressRange").val();
+    employee.Email = $("#Email").val();
+    employee.PositionCode = $("#PositionI").val();
+    employee.Phone = $("#Phone").val();
+
+    employee.DepartmentCode = $("#DepartmentI").val();
+    employee.SingerCode = $("#SingerCode").val();
+    employee.Salary = $("#Salary").val();
+    if(employee.Salary == "") employee.Salary = 0;
+    employee.DateOfJoin = $("#DateOfJoin").val();
+    if(employee.DateOfJoin == "") employee.DateOfJoin = null;
+    employee.WorkStatus = $("#WorkStatus").val();
+    if(employee.WorkStatus == "") employee.WorkStatus = 0;
+
+    let code = CheckData(employee.EmployeeCode, "EmployeeCode");
+    let name = CheckData(employee.EmployeeName, "EmployeeName");
+    let id = CheckData(employee.PeopleID, "PeopleID");
+    let email = CheckData(employee.Email, "Email");
+    let phone = CheckData(employee.Phone, "Phone");
+
+    if(code && name && id && email && phone){
+        if(!IsEmail(employee.Email)){
+            $("#Email").addClass("boder-red");
+            $("#Email").attr("title","Định dạng email không đúng");
+        }
+        else{
+            Url = "http://localhost:54578/api/v1/Employees/"+employeeCode;
+            $.ajax({
+                url: Url,
+                type: "PUT",
+                data: JSON.stringify(employee),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json"
+            }).done(function(res){
+                getData();
+                $('#AddForm').hide();
+            })
+            .fail(function(res){
+                alert('Update error');
+            });
+        }
+    }
 }
